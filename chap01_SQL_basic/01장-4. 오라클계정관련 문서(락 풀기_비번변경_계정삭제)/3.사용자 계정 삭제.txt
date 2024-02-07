@@ -1,0 +1,12 @@
+3. 사용자 계정 삭제 
+
+1) [시작] -> [Oracle - OraDB21Home1] -> [SQL Plus] 실행 
+
+2) SQL> conn system/123456; -- 로그인(관리자 아이디/비번)  
+
+3) SQL> drop user c##scott cascade;   -- 사용자 계정 삭제 : 주의 : developer, Command line 등 모든 연결 종료
+
+4) SQL> quit  -- 종료 
+
+
+
