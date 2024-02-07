@@ -1,0 +1,64 @@
+﻿-- sql_cp.sql
+
+/*
+  SQL(Structured Query Language) : 구조화된 질의 언어 
+  - DDL, DML, DCL
+  1. DDL : 데이터 정의어 -> DBA, USER(TABLE 생성, 구조변경, 삭제)
+  2. DML : 데이터 조작어 -> USER(SELECT, INSERT, DELETE, UPDATE)
+  3. DCL : 데이터 제어어 -> DBA(권한설정, 사용자 등록 등) 
+*/
+
+-- 1. DDL : 데이터 정의어
+
+-- 1) Table 생성 
+/*
+ * create table 테이블명(
+ *   칼럼명 데이터형 [제약조건],
+ *   칼럼명 데이터형
+ *   );
+ */
+ 
+
+-- 2) Table 구조 변경 
+-- (1) 테이블 이름 변경 
+-- 형식) alter table 구테이블명 rename to 새테이블명;
+
+-- (2) 테이블 칼럼 추가 
+-- 형식) alter table 테이블명 add (칼럼명 자료형(n));
+
+--(3) 테이블 칼럼 수정 : 이름변경, type, 제약조건 수정 
+-- 형식) alter table 테이블명 modify (칼럼명 자료형(n) 제약조건); 
+
+-- (4) 테이블 칼럼 삭제 
+-- 형식) alter table 테이블명 drop column  칼럼명;
+
+-- 3) Table 제거 
+-- 형식) drop table 테이블명 purge;
+-- purge 속성 : 임시파일 제거 
+
+
+-- 2. DML : 데이터 조작어
+create table depart(
+dno number(4),
+dname varchar(50),
+daddress varchar(100)
+);
+
+-- 1) insert : 레코드 삽입
+-- 형식) insert into 테이블명(칼럼명1, .. 칼럼명n) values(값1, ... 값n);
+
+-- 2) select : 레코드 검색 
+-- 형식) select 칼럼명 from 테이블명 [where 조건식];
+
+-- 3) update : 레코드 수정 
+-- 형식) update 테이블명 set 칼럼명 = 값 where 조건식;
+
+-- 4) delete : 레코드 삭제 
+-- 형식) delete from 테이블명 where 조건식;
+
+-- 3. DCL : 데이터 제어어
+-- 1) 권한 설정 : grant 권한, ... to user;
+-- 2) 권한 해제 : revoke 권한, ... to user;
+
+
+
