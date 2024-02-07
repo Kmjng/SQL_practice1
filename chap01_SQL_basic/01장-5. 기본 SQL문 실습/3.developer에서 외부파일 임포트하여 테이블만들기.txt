@@ -1,0 +1,13 @@
+developer에서 excel 파일 import하여 table 생성하기  
+ - 대상 파일 : studentexcel.xlsx
+
+1. 대상 파일 확인 : 칼럼, 자료형
+
+2. Developer에서 데이터 임포트
+  -> developer 접속 
+  -> 데이터테이블(필터링됨) 선택 > 마우스 오른쪽 버튼 > 데이터임포트 
+  -> 엑셀 파일 열기 > 다음 > (파일명 : ex_std) > 다음 > 열 정의(1:1 지정) > 완료
+
+3. table 확인 
+select * from ex_std;
+desc ex_std;
