@@ -1,0 +1,15 @@
+1. scott(사용자) 계정 잠금 해제
+
+1) [시작] -> [Oracle - OraDB21Home1] -> [SQL Plus] 실행 
+
+2) SQL> conn system/123456; -- 로그인(관리자 아이디/비번)  
+
+3) SQL> select * from all_users; -- 전체 사용자 보기 
+
+4) SQL> alter user c##scott account unlock;  -- scott 계정 잠금 해제 
+  
+5) SQL> conn c##scott/tiger; -- scott 계정으로 로그인 
+
+6) SQL> show user;  -- 로그인 계정 확인 
+
+7) SQL> quit  -- 종료 
