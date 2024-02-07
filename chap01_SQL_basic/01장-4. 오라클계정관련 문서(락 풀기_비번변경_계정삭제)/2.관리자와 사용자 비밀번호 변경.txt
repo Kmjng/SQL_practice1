@@ -1,0 +1,12 @@
+2. 관리자/사용자 암호 변경
+
+1) [시작] -> [Oracle - OraDB21Home1] -> [SQL Plus] 실행 
+
+2) SQL> conn system/123456; -- 로그인(관리자 아이디/비번)  
+
+3) SQL> alter user system identified by 암호;  -- 관리자 암호 변경
+
+4) SQL> alter user c##scott identified by tiger;  -- 일반사용자 암호 변경
+
+
+
