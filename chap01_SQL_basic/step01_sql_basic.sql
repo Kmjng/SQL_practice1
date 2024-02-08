@@ -39,7 +39,7 @@ ALTER TABLE member ADD(reg_date date);  --date타입 자료형
 
 DESC member; --테이블 구조 확인 (이 명령어는 드래그해야 실행됨) 
 
---(3) 테이블 칼럼 수정 : 이름변경X(테이블 컬럼명은 수정할 수 없음) , type(O), 제약조건(O) 수정 
+--(3) 테이블 칼럼 수정 : ★★★ 이름변경X(테이블 컬럼명은 수정할 수 없음) , type(O), 제약조건(O) 수정 
 -- 형식) alter table 테이블명 modify (칼럼명 자료형(n) 제약조건); 
 ALTER TABLE member MODIFY (pwd varchar2(25));
 
