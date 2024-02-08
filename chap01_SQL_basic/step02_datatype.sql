@@ -36,8 +36,8 @@ SELECT * FROM students;
 commit;
 /*
  * Oracle 주요 자료형 
- *  1. number(n) : n 크기 만큼 숫자(실수) 저장 <<실수형>>
- *  2. int : 4바이트 정수 저장 <<정수형>>
+ *  1. number(n) : n 크기 만큼 숫자(실수) 저장 <<실수형>> n은 38자리까지 지원됨. 
+ *  2. int : 4바이트 정수 저장 <<정수형>> 오라클에서 integer타입 잘 사용하지 않음. number로 변환된다. 
  *  3. varchar2(n) : n 크기 만큼 가변길이 문자 저장 
  *  4. char(n) : n 크기 만큼 고정길이 문자 저장
  *  5. date : 날짜/시간 저장 - sysdate : system의 날짜/시간 저장 
