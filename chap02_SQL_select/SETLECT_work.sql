@@ -10,7 +10,7 @@ condition]
 << []: 생략가능, {}:예 >>
 SELECT
 원하는 컬럼 선택
-* 테이블의 모든 컬럼출력
+* 테이블의 모든 컬럼출력w
 alias
 해당 컬럼에 대한 별칭 다른 이름 부여
 DISTINCT
@@ -168,7 +168,9 @@ WHERE comm IS NOT NULL;
 -- 2.2. 논리연산자 
 /* 
 ★★★ 연산자 우선순위 ★★★
-산술연산자 > 비교연산자 > 논리연산자
+괄호 > 산술연산자 > 비교연산자 > 논리연산자 (NOT > AND > OR)
+
+
 */
 SELECT empno, ename, job, sal, hiredate, deptno
 FROM emp 
