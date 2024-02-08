@@ -144,8 +144,14 @@ SELECT empno, ename, job, sal, hiredate
 FROM emp
 WHERE job IN ('MANAGER','ANALYST');
 
--- LIKE연산자: 특정 문자를 포함한 문자열을 가진 행을 출력 -- 칼럼명 LIKE '패턴문자' 
---패턴문자: % 문자 여러개를 칭한다, _ 문자 한개를 칭한다. 
+/* LIKE연산자: 특정 문자를 포함한 문자열을 가진 행을 출력 -- 칼럼명 LIKE '패턴문자' 
+ 패턴문자: % 문자 여러개를 칭한다, _ 문자 한개를 칭한다. 
+ M과L을 포함하고 있는 이름 검색 => LIKE '%M&L&' ★★★
+ LIKE는 대소문자를 구분하여 검색하기 때문에, 
+ 대소문자 구분 없이 검색하기 위해서는 UPPER, LOWER 함수를 사용하여 컬럼의 값을 치환 후 검색해야 한다.
+ 
+*/
+
 SELECT * FROM student WHERE name LIKE '서%' ; -- 접두어 포함 문자 검색 시 
 SELECT * FROM student WHERE name LIKE '%재%' ;
 SELECT * FROM student WHERE name LIKE '%수' ;
@@ -187,3 +193,45 @@ WHERE sal >= 1100 OR job ='MANAGER';
 SELECT empno, ename, job, sal, hiredate, deptno
 FROM emp 
 WHERE job NOT IN ('MANAGER','CLERK','ANALYST');
+
+SELECT empno, ename, job, sal 
+FROM emp
+WHERE job = 'SALESMAN' OR job = 'PRESIDENT' AND sal > 1500;
+
+-- 2.3. 검색 레코드 정렬 구문 ORDER BY
+
+--2.3.1. 날짜형 칼럼 정렬 
+SELECT * FROM emp;
+
+SELECT hiredate, empno, ename, job, sal, deptno
+FROM emp 
+ORDER BY hiredate ASC;
+
+SELECT hiredate, empno, ename, job, sal, deptno
+FROM emp 
+ORDER BY hiredate DESC;
+
+-- 별칭(Alias)으로 정렬할 수 도 있음.  ★★★ ORDER BY {칼럼별칭, 칼럼수식, 칼럼순번}
+
+SELECT empno, ename, job, sal, sal*12 annsal FROM emp 
+ORDER BY annsal;
+
+SELECT empno, ename, job, sal, sal*12 FROM emp 
+ORDER BY sal*12;
+
+SELECT empno, ename, job, sal, sal*12 annsal FROM emp 
+ORDER BY 5;
+
+--사원명(두번째칼럼) 기준 내림차순 정렬하기 
+SELECT empno, ename, job, sal, sal*12 annsal FROM emp 
+ORDER BY 2 DESC;
+
+-- 2개 이상의 칼럼으로 정렬하는 예 
+SELECT deptno, ename, job, sal, sal*12 annsal FROM emp 
+ORDER BY deptno, sal DESC; 
+/* ★★★ 주의: , 앞에 ASC 생략된 것임 
+1차 정렬: deptno 오름차순 (ASCENDING) 
+2차 정렬: sal 내림차순 (DESCENDING)
+*/
+SELECT deptno, ename, job, sal, hiredate FROM emp 
+ORDER BY deptno, job, sal DESC; -- 같은 부서&직책일 때 급여를 내림차순으로 
