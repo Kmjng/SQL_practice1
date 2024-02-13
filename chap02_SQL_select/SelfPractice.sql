@@ -1,3 +1,4 @@
+-- PRIMARY KEY 연습 
 CREATE TABLE menu (
 name varchar2(20) primary key,
 health varchar2(10)
