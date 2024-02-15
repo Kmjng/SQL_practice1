@@ -7,6 +7,13 @@
 예시) 학번, 사번, 고객번호, 환자번호 등의 기본키에 자료 생성용 이용 
 
 6가지 형식이 존재 
+CREATE SEQUENCE 시퀀스이름 
+START WITH n 
+INCREMENT BY n 
+MAXVALUE n | NOMAXVALUE 
+MINVALUE n | NOMINVALUE 
+CYCLE | NOCYCLE
+CACHE n | NOCACHE 
 */
 
 CREATE SEQUENCE deptno_seq 
