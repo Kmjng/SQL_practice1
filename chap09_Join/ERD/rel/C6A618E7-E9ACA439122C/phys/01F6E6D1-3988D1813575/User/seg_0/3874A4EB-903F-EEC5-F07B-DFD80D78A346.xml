@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="C##SCOTT" directorySegmentName="seg_0" id="3874A4EB-903F-EEC5-F07B-DFD80D78A346">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjName>C##SCOTT</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:45 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<schemaObject>AFD4D67F-AF63-314F-B299-D2D3A9E178C9</schemaObject>
+<defTableSpace>5146E780-B3A2-2F43-2234-53681B219E7C</defTableSpace>
+<privileges>UNLIMITED TABLESPACE</privileges>
+<profile>DEFAULT</profile>
+</UserOraclev10g>

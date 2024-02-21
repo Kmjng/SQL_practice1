@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F87BDA3E-2886-D959-15A8-936480C81288" containerWithKeyObject="5D77E80D-9EC4-E479-5605-47793BF4209C" localFKIndex="1328CF52-5B2E-39FA-F162-BCCA942AB557" name="SYS_C008381">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>C##SCOTT</sourceObjSchema>
+<sourceObjName>SYS_C008381</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:47 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<referredTableLongName>C##SCOTT.GOODS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>45F3A75B-D073-A2A8-82B4-7797050A6445</referredTableID>
+<keyObject>19B49288-40AF-595C-7712-37EB858AFEA8</keyObject>
+<referredKeyID>19B49288-40AF-595C-7712-37EB858AFEA8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>GCODE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

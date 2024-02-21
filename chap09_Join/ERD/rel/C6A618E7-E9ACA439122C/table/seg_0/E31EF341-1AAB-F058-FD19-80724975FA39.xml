@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E31EF341-1AAB-F058-FD19-80724975FA39" schemaObject="AFD4D67F-AF63-314F-B299-D2D3A9E178C9" name="RETURN_DATA">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>C##SCOTT</sourceObjSchema>
+<sourceObjName>RETURN_DATA</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:31:17 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>6B130188-AEEB-838F-3C71-B231151D028C</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USER_ID" id="A06EB5CF-0449-6509-532B-A48F0C4E982E">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>RETURN_DATA</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:31:17 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>C9A60851-C274-2131-D02D-1066362B1B4B</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D64244D5-D80C-D606-0174-FB6F17378705" referredColumn="2044313E-4528-88B8-7159-06E42262DC58"/>
+</associations>
+</Column>
+<Column name="RETURN_CODE" id="80BBB61B-220E-51A9-D508-E8B25C7FF7E8">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>RETURN_DATA</sourceObjSchema>
+<sourceObjName>RETURN_CODE</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:31:17 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>389B2828-BD46-4643-8F5C-D7F1C9D20661</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,1,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6C0CAEA2-7700-C46F-1CEF-01F8D0213AB2" name="SYS_C008395">
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:31:17 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A06EB5CF-0449-6509-532B-A48F0C4E982E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

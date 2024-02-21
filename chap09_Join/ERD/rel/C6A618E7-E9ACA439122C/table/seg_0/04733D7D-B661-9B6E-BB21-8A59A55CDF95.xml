@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="04733D7D-B661-9B6E-BB21-8A59A55CDF95" schemaObject="AFD4D67F-AF63-314F-B299-D2D3A9E178C9" name="SALE_DATA">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>C##SCOTT</sourceObjSchema>
+<sourceObjName>SALE_DATA</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:31:17 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>44BD9C04-5FD3-229C-58BA-E44D6E42CFF2</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USER_ID" id="862F861D-FB2C-C497-C6A0-A900103AF69E">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>SALE_DATA</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:31:17 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>385DF78E-3303-C0A1-ED36-B8BEFC174FF3</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2CA70D4F-DF8F-29D4-CC13-5DE969DE1C29" referredColumn="2044313E-4528-88B8-7159-06E42262DC58"/>
+</associations>
+</Column>
+<Column name="PRODUCT_TYPE" id="FDA92232-E518-2356-27C5-F422BA27719B">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>SALE_DATA</sourceObjSchema>
+<sourceObjName>PRODUCT_TYPE</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:31:17 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>F91193FB-42D4-E42F-7077-CE7D31863242</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,1,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PAY_METHOD" id="AFA8DD92-D1D4-713F-F136-08280811577E">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>SALE_DATA</sourceObjSchema>
+<sourceObjName>PAY_METHOD</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:31:17 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>5E3E1FFC-C93F-8C49-2729-6518B1BF8340</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE" id="B003B886-0246-5E3C-A0A1-41F7A11077A0">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>SALE_DATA</sourceObjSchema>
+<sourceObjName>PRICE</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:31:17 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>791543D3-78A7-D13E-D771-BC453CF56C0A</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="30B7BC50-5099-B425-51FB-72734A344C21" name="SYS_C008392">
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:31:17 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="862F861D-FB2C-C497-C6A0-A900103AF69E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

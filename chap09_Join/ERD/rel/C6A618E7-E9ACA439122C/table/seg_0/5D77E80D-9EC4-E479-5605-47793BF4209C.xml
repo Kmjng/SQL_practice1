@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5D77E80D-9EC4-E479-5605-47793BF4209C" schemaObject="AFD4D67F-AF63-314F-B299-D2D3A9E178C9" name="SALE">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>C##SCOTT</sourceObjSchema>
+<sourceObjName>SALE</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:46 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SALE_NUM" id="1B4BA400-859F-0557-7C21-42A087B71F90">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>SALE</sourceObjSchema>
+<sourceObjName>SALE_NUM</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:46 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GCODE" id="4DC4E839-2A9E-59ED-996E-10377907B1FF">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>SALE</sourceObjSchema>
+<sourceObjName>GCODE</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:46 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F87BDA3E-2886-D959-15A8-936480C81288" referredColumn="239E3A27-7855-7A7C-269C-291FF49C0B78"/>
+</associations>
+</Column>
+<Column name="SALE_DATE" id="5182422E-2C16-F12F-7E3D-49405F0D45ED">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>SALE</sourceObjSchema>
+<sourceObjName>SALE_DATE</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:46 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SU" id="701B5F15-4289-A5A1-A88C-8DBCA769E7B5">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>SALE</sourceObjSchema>
+<sourceObjName>SU</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:46 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DC82B151-FB10-9DA4-8AB0-DCB3DEC9A1D3" schemaObject="AFD4D67F-AF63-314F-B299-D2D3A9E178C9" name="SALE_PK">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>C##SCOTT</sourceObjSchema>
+<sourceObjName>SYS_C008380</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:46 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1B4BA400-859F-0557-7C21-42A087B71F90"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1328CF52-5B2E-39FA-F162-BCCA942AB557" name="SYS_C008381">
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:47 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4DC4E839-2A9E-59ED-996E-10377907B1FF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

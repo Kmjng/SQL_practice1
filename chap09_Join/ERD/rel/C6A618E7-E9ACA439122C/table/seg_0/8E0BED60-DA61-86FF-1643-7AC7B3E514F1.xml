@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8E0BED60-DA61-86FF-1643-7AC7B3E514F1" schemaObject="AFD4D67F-AF63-314F-B299-D2D3A9E178C9" name="USER_DATA">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>C##SCOTT</sourceObjSchema>
+<sourceObjName>USER_DATA</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:32:33 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>901FC5BE-E5A5-C652-E194-CAA7B6F5DB0D</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USER_ID" id="2044313E-4528-88B8-7159-06E42262DC58">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>USER_DATA</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:32:33 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>7C0C7329-9189-EE0E-8ECB-9FB704B206C8</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GENDER" id="E9EADA89-2E5F-154C-4D95-DCDCDF96FB96">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>USER_DATA</sourceObjSchema>
+<sourceObjName>GENDER</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:32:33 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>818D0C27-EFD6-F550-63D9-8CF678194DC4</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,1,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AGE" id="33BB755E-E1DC-6690-B681-66FBA6EC520E">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>USER_DATA</sourceObjSchema>
+<sourceObjName>AGE</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:32:33 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>A44332CD-DC3C-0CDC-25ED-50292714BE6F</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HOUSE_TYPE" id="8EF1061F-7647-AFCC-16CC-40D1528E133F">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>USER_DATA</sourceObjSchema>
+<sourceObjName>HOUSE_TYPE</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:32:33 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>76B22C16-4D69-9E03-AA7D-650275608358</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,1,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RESIDENT" id="11521ABB-1890-DBD5-62C1-CC5897A15D38">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>USER_DATA</sourceObjSchema>
+<sourceObjName>RESIDENT</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:32:33 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>3F985FAA-DBA5-8838-BC38-31F1C2F3802C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="JOB" id="762AA445-0236-6587-86AB-967DA75583C8">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>USER_DATA</sourceObjSchema>
+<sourceObjName>JOB</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:32:33 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>93723A04-F6AD-6123-C412-8D75DA612B76</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,1,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="87C4357E-7266-1907-4624-C857BF394252" schemaObject="AFD4D67F-AF63-314F-B299-D2D3A9E178C9" name="USER_DATA_PK">
+<sourceConnName>KMJ</sourceConnName>
+<sourceObjSchema>C##SCOTT</sourceObjSchema>
+<sourceObjName>SYS_C008387</sourceObjName>
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:32:33 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>A2F08E10-9CF8-1A3A-A21E-3B9BA82661E9</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2044313E-4528-88B8-7159-06E42262DC58"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

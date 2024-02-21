@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="C##SCOTT" directorySegmentName="seg_0" id="AFD4D67F-AF63-314F-B299-D2D3A9E178C9">
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:46 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<importedID>3E38E968-7FD0-36D5-2833-F6417D7880BB</importedID>
+</SchemaObject>

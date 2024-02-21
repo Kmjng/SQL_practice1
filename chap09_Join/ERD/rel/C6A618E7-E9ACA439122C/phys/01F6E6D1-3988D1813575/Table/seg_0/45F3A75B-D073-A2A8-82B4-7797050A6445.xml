@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="GOODS" directorySegmentName="seg_0" id="45F3A75B-D073-A2A8-82B4-7797050A6445">
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:46 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<schemaObject>AFD4D67F-AF63-314F-B299-D2D3A9E178C9</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>24D82163-BAF7-30AC-8517-CD7680C7C858</segment>
+<tableSpace>5146E780-B3A2-2F43-2234-53681B219E7C</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="GNAME" id="0B39BCA4-D3F2-8B27-337A-D7731F93B45E">
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:46 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GCODE" id="239E3A27-7855-7A7C-269C-291FF49C0B78">
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:46 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRICE" id="87B5A409-32D4-2929-9007-5014A5F3B5CF">
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:46 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="GOODS_PK" id="19B49288-40AF-595C-7712-37EB858AFEA8">
+<createdBy>itwill</createdBy>
+<createdTime>2024-02-21 02:06:47 UTC</createdTime>
+<ownerDesignName>ERD</ownerDesignName>
+<schemaObject>AFD4D67F-AF63-314F-B299-D2D3A9E178C9</schemaObject>
+<segment>5CB36547-9C41-6630-46C3-CBAA01B4BF65</segment>
+<tableSpace>5146E780-B3A2-2F43-2234-53681B219E7C</tableSpace>
+<indexSegment>5CB36547-9C41-6630-46C3-CBAA01B4BF65</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>
