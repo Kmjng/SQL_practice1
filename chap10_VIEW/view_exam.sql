@@ -122,6 +122,10 @@ WITH READ ONLY ;
 -- 단계2 : view 이용 TOP5 조회 
 SELECT * FROM animal_sorted_view ;
 
+-- 방법 2. 
+SELECT * FROM animal_sorted_view FETCH FIRST 5 ROWS ONLY ; 
+-- FETCH 절 이용해서 상위 5개 래코드 선정 
+
 
 /* 문8) "goods"와 "sale"라는 두 개의 테이블이 있습니다. "goods" 테이블은 상품 정보를, 
         "sale" 테이블은 판매 정보를 저장하고 있습니다. 이 두 테이블을 조인하여 
@@ -144,5 +148,6 @@ CREATE VIEW SaleView
 AS SELECT g.gcode, gname, price, sale_date su 
 FROM goods g, sale s 
 WHERE g.gcode = s.gcode ;
+
 
 SELECT * FROM SaleView ; 
