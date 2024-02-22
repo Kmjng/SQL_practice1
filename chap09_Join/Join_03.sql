@@ -166,3 +166,46 @@ BETWEEN SUBSTR(TO_CHAR(s.start_time, 'YY-MM-DD HH24'), -2, 2) AND
 GROUP BY c.cid, c.cname -- 이름도 SELECT하기 위해서 함께 GROUP 해준다.  
  ;
 
+--------------------- 추가 (2024.02.22) 
+
+/* 
+이산형 칼럼(변수): 숫자형, 범위 있음
+연속형 칼럼(변수): 숫자형, 범위 없음
+
+예) 가족수, 나이, 부서번호, 급여 - 이산형 
+예) 급여, 시간(DB안에서는 숫자로 다뤄짐) - 연속형 
+
+조인조건에서 쓰이는 칼럼은 주로 이산형이다. 
+ON (A.칼럼 = B.칼럼) 
+
+연속형변수를 조인할 경우, 범위 BETWEEN AND 를 사용하면 가능하다. 
+ON(A.칼럼 ≥ B.칼럼 AND A.칼럼≤ B.칼럼)
+
+예) 0~100 : 연속형 -> 청년(0~40), 중년(40~60), 노년(60 이상) 
+
+*/
+
+-- 급여 범위에 따른 급여 분류 
+
+CREATE TABLE sal_tab(
+start_sal int, 
+end_sal int, 
+sal_class CHAR(12)
+);
+
+
+-- 1~1000원 사이 (낮은급여) / 1001~1500원 사이 (보통급여) / 1501원~ : 높은 급여 
+INSERT INTO sal_tab VALUES (1, 1000, '낮은급여'); 
+INSERT INTO sal_tab VALUES (1001, 1500, '보통급여');
+INSERT INTO sal_tab VALUES (1501, 5000, '높은급여');
+
+SELECT * FROM sal_tab;
+SELECT * FROM emp ; 
+
+SELECT e.* , s.sal_class
+FROM emp e INNER JOIN sal_tab s
+ON e.sal >= s.start_sal AND e.sal <=s.end_sal;
+-- 동치 
+SELECT e.* , s.sal_class
+FROM emp e INNER JOIN sal_tab s
+ON e.sal BETWEEN s.start_sal AND s.end_sal  ;
