@@ -156,3 +156,112 @@ FROM emp WHERE job !='PRESIDENT'
 WITH READ ONLY ; 
 
 SELECT * FROM hr_view ; 
+
+-- 6. 뷰의 옵션들 (2024-02-22) 
+/*
+    옵션없는 view : ★★★ 조건에 사용되지 않은 내용도 수정(삽입O, 수정O, 제거O) 가능 (단, 당연히 SELECT 된 칼럼에 해당되어야 한다.) 
+    WITH READ ONLY : 읽기 전용 
+    WITH CHECK OPTION : 옵션없는 뷰와 비슷할 수 있으나, 해당 명령어가 있으면 
+        추가적으로 점검사항이 존재. (조건 하에 수정 가능)
+        뷰 생성 시 적용된 'WHERE 절에서의 칼럼'을 보호하는 목적. 
+        ★★★조건에 해당하는 레코드만 수정(삽입O, 수정O, 제거O)이 가능하다.  
+        ★★★근데 조건에 쓰인 칼럼의 내용은 변경 불가 
+        그리고 WHERE 절 이외의 레코드는 건들 수 없다. 
+*/
+-- 6.1. WITH READ ONLY 
+
+DROP TABLE emp_copy purge; 
+CREATE TABLE emp_copy AS SELECT * FROM emp; 
+select * from emp_copy ; 
+
+CREATE OR REPLACE VIEW VIEW_READ30
+AS 
+SELECT EMPNO, ENAME, SAL, COMM, DEPTNO 
+FROM EMP_COPY WHERE DEPTNO=30
+WITH READ ONLY;
+SELECT * FROM view_read30;
+
+INSERT INTO view_read30 VALUES (1111, 'TEST', 2500, 100, 30); -- [불가능] 
+
+-- 6.2. WITH CHECK OPTION 
+
+CREATE OR REPLACE VIEW VIEW_CHK30
+AS 
+SELECT EMPNO, ENAME, SAL, COMM, DEPTNO 
+FROM EMP_COPY
+WHERE DEPTNO=30 -- 해당 칼럼이 with check option 에 해당된다. 
+WITH CHECK OPTION;
+
+SELECT * FROM view_chk30;
+
+-- 기능 1. 
+-- 부서번호 detpno 칼럼의 내용을 건들 수 없다. ( 30 -> 20 X)
+
+UPDATE view_chk30 SET comm = 1000 ; -- [가능] 
+-- ★★★ WHERE절 없이, 부서번호 30번인 레코드의 칼럼만 수정 가능
+SELECT * FROM emp_copy ;  -- 원본테이블에서 보면 부서번호30번만 변경되어 있다. 
+
+-- WITH CHECK OPTION 의 기능 확인 
+UPDATE view_chk30 SET deptno = 20 
+WHERE sal >= 1200; -- [오류] WITH CHECK OPTION의 조건에 위배됨 
+-- 만약 옵션이 없었으면 수정 가능했음. 
+
+-- 기능 2. 
+-- 수정 가능한 칼럼: empno, ename, sal, comm, deptno (이거는 옵션없어도 해당되는 내용임! ) 
+INSERT INTO view_chk30 VALUES(2222,'TEST', 200, 100 , 30 ) ; -- ★부서번호 30번만 수정가능  
+INSERT INTO view_chk30 VALUES(2222,'TEST', 200, 100 , 10 ) ; -- [오류] 이것도 옵션없었으면 수정가능
+
+
+commit;
+
+
+-- 제한적으로 뷰의 삭제 가능 : 부서번호 30에 해당하는 레코드 삭제는 가능 
+DELETE FROM view_chk30 
+WHERE empno = 2222 ; -- [가능]
+-- 30번만 보이는 VIEW인데 20번을 수정한다? CHECK OPTION에 의해 안됨 
+DELETE FROM view_chk20 
+WHERE deptno = 20  ; -- [가능]
+
+
+SELECT * FROM view_chk20;
+
+
+-- 7. 뷰와 의사칼럼 (ROWNUM) 
+
+-- 입사일 기준으로 내림차순 정렬 뷰 생성 
+-- [방법 1]
+CREATE OR REPLACE VIEW hiredate_view 
+AS SELECT empno, ename, hiredate 
+FROM emp_copy 
+ORDER BY hiredate DESC nulls last; 
+-- 참고로, 원본테이블은 레코드 추가 순서로 구성되어 있음. 
+
+SELECT * FROM hiredate_view ; 
+
+-- 최근 입사자 TOP5 를 뽑아보자 (1) 
+SELECT * FROM hiredate_view 
+WHERE ROWNUM <= 5; 
+
+-- 최근 입사자 TOP5 를 뽑아보자 (2) 
+SELECT * FROM hiredate_view 
+FETCH FIRST 5 ROWS ONLY ; 
+
+-- [방법 2] 최초 입사자 TOP 5을 선정한 뷰를 생성한다고 한다고 하자.   
+CREATE OR REPLACE VIEW top5_view1 
+AS SELECT empno, ename, hiredate, job 
+FROM emp 
+WHERE ROWNUM <= 5;  --원본테이블에서 입력됐던 순서를 기반으로 ROWNUM 
+SELECT * FROM top5_view1 ;
+
+-- 최근 입사자 TOP 5을 선정한 뷰를 생성한다고 한다고 하자.   
+-- <다음은 틀린 예>
+CREATE OR REPLACE VIEW top5_view2
+AS SELECT empno, ename, hiredate, job 
+FROM emp 
+WHERE ROWNUM <= 5
+ORDER BY hiredate DESC ; -- 우선순위 마지막 실행  
+SELECT * FROM top5_view2 ;  -- ROWNUM 안에서 DESCENDING 된 결과가 나와버린다. 
+
+
+-- 만약 입사일이 같으면? 
+-- [CREATE 서브쿼리] 안에서 명령된 TOP5 은 '첫번째 칼럼 기준 오름차순 조회'
