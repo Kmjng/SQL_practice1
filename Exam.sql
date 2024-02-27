@@ -62,9 +62,10 @@ INSERT INTO grad VALUES(2021031, '김주희',1005, '박사과정') ;
 
 INSERT INTO std VALUES(2022911, '황성웅',5001, '재학생') ; 
 INSERT INTO std VALUES(2021912, '최지혜',5001, '재학생') ; 
-INSERT INTO std VALUES(2021913, '현종',5002, '재학생') ; 
+INSERT INTO std VALUES(2021913, '유현종',5002, '재학생') ; 
 INSERT INTO std VALUES(2022914, '구광림',5004, '재학생') ; 
 INSERT INTO std VALUES(2021915, '김대원',5004, '재학생') ; 
+
 
 INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1005, '양자물리학','3학년', 3, '401-1' ) ; 
 INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1003, '입자물리학','3학년', 3, '402' ) ; 
