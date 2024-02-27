@@ -1,97 +1,104 @@
 -- 문제해결 개별과제 (기한: 2024-02-29) 
 /*
-테이블 1 : 교수테이블 (연구실 번호 lab_no/ 교수번호profno/ 이름 prof_name / 전공과목 major_s ) 
-테이블 2: 학생테이블 (학번 no/ 학년(SYSDATE - SUBSTR(no,1,4) )/, 이름 name, 연구실번호 lab_no, 수강과목들 subject - 학점 scores , 과정 degree )
-테이블 3: 과목테이블 (교과목명 , 수강학년 grade, 학점score,  강의실off_no, 수강인원 count(~~)  )
-테이블 4: 연구실정보 (연구실번호 office_no/ 교수번호  profno / 연구실이름 lab_name / 학생테이블 연결 / 
-
+테이블 1 : 교수테이블 (교수번호 profno / 교수이름 pname/ 연구실번호 lab_no / 전공과목 major ) 
+테이블 2: 대학원생테이블 (학번 gno / 이름 gname / 지도교수번호 profno / 과정 degree )
+테이블 3 : 학생테이블 (학번 sno / 이름 sname / 수강과목번호 no  / 재적상태 status  )
+테이블 4 : 과목테이블 (과목번호 no / 교수번호 profno / 과목명 subject / 수강학년 grade / 학점 score / 강의실번호 off_no  )
 
 */
--- 대학원생(재학생)이 선호하는 과목 찾기 
--- 초기화 
-DROP TABLE prof purge; 
-DROP TABLE stud purge; 
-DROP TABLE sub purge; 
-DROP SEQUENCE sub_seq ; 
-
--- 테이블 확인 
-SELECT * FROM prof ; 
-SELECT * FROM stud ; 
-SELECT * FROM sub ; 
 
 -- 테이블 생성 
 CREATE TABLE prof (
 profno NUMBER(4) PRIMARY KEY , -- ★ 기본키 : 교수 번호 
-prof_name VARCHAR2(10) NOT NULL,        -- 교수명
+pname VARCHAR2(10) NOT NULL,        -- 교수명
 lab_no NUMBER(4) ,          -- 연구실번호
-major_s VARCHAR2(50)            -- 전공과목명
-
+major VARCHAR2(50)            -- 전공과목명
 );
 
-CREATE TABLE stud(
-no NUMBER(7)    PRIMARY KEY ,  -- ★ 기본키 : 학번
-name VARCHAR(10) NOT NULL,          -- 학생명
+CREATE TABLE grad(
+gno NUMBER(7)    PRIMARY KEY ,  -- ★ 기본키 : 학번
+gname VARCHAR(10) NOT NULL,          -- 학생명
 profno  NUMBER(4)  NOT NULL , -- 교수번호 (외래키) 
-subject VARCHAR2(50) ,          -- 수강과목
-scores NUMBER(3),   -- 학점
 degree VARCHAR(15) ,         -- 과정
-FOREIGN KEY(profno) REFERENCES prof(profno) --외래키 1 지정 (교수번호) 
+FOREIGN KEY(profno) REFERENCES prof(profno) --외래키 지정 
+);
 
+CREATE TABLE std(
+sno NUMBER(7)    PRIMARY KEY ,  -- ★ 기본키 : 학번
+sname VARCHAR(10) NOT NULL,          -- 학생명
+no  NUMBER(4)  NOT NULL , -- 과목번호 (외래키) 
+status VARCHAR(15) ,         -- 재적상태
+FOREIGN KEY(no) REFERENCES sub(no) --외래키 지정 
 );
 
 CREATE TABLE sub(
-sno NUMBER(4) PRIMARY KEY ,   -- ★기본키 : 과목번호
+no NUMBER(4) PRIMARY KEY ,   -- ★기본키 : 과목번호
 profno NUMBER(4), --  교수번호 (외래키) 
 subject VARCHAR2(50)  ,      -- 과목명
-grade NUMBER(1) NOT NULL,       -- 수강학년
+grade VARCHAR(10) NOT NULL,       -- 수강학년
 score NUMBER(1) NOT NULL,       -- 학점
 off_no VARCHAR(5)  ,        -- 강의실번호
-FOREIGN KEY(profno) REFERENCES prof(profno) -- 외래키 지정 : 교수번호
+FOREIGN KEY(profno) REFERENCES prof(profno) -- 외래키 지정
 );
 
--- 시퀀스 (과목번호) 
+-- 시퀀스 (과목번호) : 개설 과목에 할당된다. 
 CREATE SEQUENCE sub_seq 
 START WITH 5000
 INCREMENT BY 1 ;
 
-
 -- 레코드 삽입 
-INSERT INTO prof VALUES(1001, '정현종',301, '배리스터 소자 및 물리학') ;
+INSERT INTO prof VALUES(1001, '정현종',301, '전산물리학') ;
 INSERT INTO prof VALUES(1002, '장성호',302, '양자 소재 및 소자') ;
 INSERT INTO prof VALUES(1003, '송정현',303, '입자물리학') ;
 INSERT INTO prof VALUES(1004, '여준현',304, '열 및 통계물리학') ;
 INSERT INTO prof VALUES(1005, '이훈경',305, '양자물리학') ;
 
-INSERT INTO stud VALUES(2021001, '김민정',1001, '입자물리학', 3, '석사과정') ; 
-INSERT INTO stud VALUES(2021002, '박창연',1002, '열 및 통계물리학', 2.5, '석사과정') ; 
-INSERT INTO stud VALUES(2024003, '이화용',1002, '양자물리학', 2, '석사과정') ; 
-INSERT INTO stud VALUES(2022003, '신동호',1002, '입자물리학', 3, '박사과정') ; 
-INSERT INTO stud VALUES(2023001, '이창회',1002, '배리스터 소자 및 물리학', 3, '석사과정') ; 
-INSERT INTO stud VALUES(2021003, '김주희',1005, '입자물리학', 3, '박사과정') ; 
+INSERT INTO grad VALUES(2023011, '김민정',1001, '석사과정') ; 
+INSERT INTO grad VALUES(2023021, '박창연',1002, '석사과정') ; 
+INSERT INTO grad VALUES(2023024, '이화용',1002, '석사과정') ; 
+INSERT INTO grad VALUES(2022022, '신동호',1002, '박사과정') ; 
+INSERT INTO grad VALUES(2023023, '이창회',1002, '석사과정') ; 
+INSERT INTO grad VALUES(2021031, '김주희',1005, '박사과정') ; 
 
-INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1005, '양자물리학',1, 3, '401-1' ) ; 
-INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1003, '입자물리학',2, 3, '402' ) ; 
-INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1004, '열 및 통계물리학',1, 3, '403' ) ; 
-INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1002, '양자 소재 및 소자',1, 3, '404' ) ; 
-INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1001, '배리스터 소자 및 물리학',2, 3, '505' ) ; 
+INSERT INTO std VALUES(2022911, '황성웅',5001, '재학생') ; 
+INSERT INTO std VALUES(2021912, '최지혜',5001, '재학생') ; 
+INSERT INTO std VALUES(2021913, '현종',5002, '재학생') ; 
+INSERT INTO std VALUES(2022914, '구광림',5004, '재학생') ; 
+INSERT INTO std VALUES(2021915, '김대원',5004, '재학생') ; 
+
+INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1005, '양자물리학','3학년', 3, '401-1' ) ; 
+INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1003, '입자물리학','3학년', 3, '402' ) ; 
+INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1004, '열 및 통계물리학','4학년', 3, '403' ) ; 
+INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1002, '양자 소재 및 소자','4학년', 3, '404' ) ; 
+INSERT INTO sub VALUES(sub_seq.NEXTVAL, 1001, '전산물리학','3학년', 3, '505' ) ; 
 
 
 
 -- 테이블 확인 
 SELECT * FROM prof ; 
-SELECT * FROM stud ; 
+SELECT * FROM grad ;
+SELECT * FROM std ; 
 SELECT * FROM sub ; 
 
 
--- 개설된 과목에 대한 교수정보와 조교정보 출력하기 
+-- 개설된 과목에 대한 교수, 조교명과 수강생수 출력하기 
 -- 단, 조교는 담당교수 랩실의 학생이 맡는다. 
 -- 개설된 과목에 담당교수는 지정되어 있으나, 연구실 내 학생이 없을 경우 조교가 배정되지 않는다. 
--- 연구실 내 학생이 많을 경우 박사과정 학생으로 조교가 배정된다. 
-SELECT DISTINCT (sno) 과목번호, sub.subject 과목명,  prof.prof_name 담당교수명, stud.name 조교명
-FROM sub LEFT OUTER JOIN prof        -- 과목테이블과 교수테이블 조인 
-ON sub.profno = prof.profno LEFT OUTER JOIN stud     -- 교수테이블과 학생테이블 조인 
-ON prof.profno = stud.profno 
-ORDER BY sno
-;
+-- 연구실 내 학생이 많을 경우 [학번 끝자리가 1]인 학생으로 조교가 배정된다. 
+-- 수강생이 없을 경우 폐강이다. 
 
--- 학생들에 들어간 순서 넘버링 해서 넘버 1인 학생이 조교하도록 하기 
+SELECT sub.no 과목번호, sub.subject 과목명, prof.pname 담당교수명, ass.gname 조교명,COUNT(std.sno) 수강생수 ,
+CASE 
+WHEN COUNT(std.sno) = 0 THEN '폐강'
+ELSE '개설됨'
+END 개설여부 
+FROM sub LEFT OUTER JOIN prof        -- 과목테이블과 교수테이블 조인 
+ON sub.profno = prof.profno LEFT OUTER JOIN (SELECT *
+FROM grad 
+WHERE gno LIKE '%1') ass      -- 교수테이블과 학생(조교)테이블 조인 
+ON prof.profno = ass.profno LEFT OUTER JOIN std
+ON sub.no = std.no 
+GROUP BY sub.no , sub.subject, prof.pname, ass.gname
+ORDER BY sub.no
+;
+COMMIT;
