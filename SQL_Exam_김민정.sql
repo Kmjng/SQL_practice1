@@ -11,13 +11,13 @@
 */
 
 /*
-삭제 
-DROP TABLE prof   CASCADE CONSTRAINTS;
+삭제 */
+DROP TABLE prof CASCADE CONSTRAINTS;
 DROP TABLE grad PURGE ;
 DROP TABLE std PURGE ;
 DROP TABLE sub PURGE ;
 DROP SEQUENCE sub_seq  ;
-*/
+
 
 -- 테이블 생성 
 CREATE TABLE prof (
@@ -89,7 +89,7 @@ INSERT INTO std VALUES(2022914, '구광림',5004, '재학생') ;
 INSERT INTO std VALUES(2021915, '김대원',5004, '재학생') ; 
 INSERT INTO std VALUES(2021916, '김민정',NULL, '휴학생') ; 
 
-
+COMMIT;
 
 
 
@@ -105,7 +105,8 @@ SELECT * FROM std ;
 -- 연구실 내 학생이 많을 경우 [학번 끝자리가 1]인 학생으로 조교가 배정된다. 
 -- 수강생이 없을 경우 폐강이다. 
 
-SELECT sub.no 과목번호, sub.subject 과목명, grade 수강학년, score 학점, prof.pname 담당교수명, ass.gname 조교명,COUNT(std.sno) 수강생수 ,
+SELECT sub.no 과목번호, sub.subject 과목명, grade 수강학년, score 학점, prof.pname 담당교수명, 
+    ass.gname 조교명,COUNT(std.sno) 수강생수 ,
 CASE 
 WHEN COUNT(std.sno) = 0 THEN '폐강'
 ELSE '개설됨'
@@ -119,4 +120,4 @@ ON sub.no = std.no
 GROUP BY sub.no , sub.subject, grade, score, prof.pname, ass.gname
 ORDER BY sub.no
 ;
-COMMIT;
+
